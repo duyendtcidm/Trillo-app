@@ -96,9 +96,11 @@
         &-photo {
             height: 3.75rem;
             border-radius: 50%;
-            margin-left: 1rem;
+            margin-right: .75rem;
         }
-        &-name {}
+        &-name {
+            color: var(--color-grey-dark-1);
+        }
     }
 }
 
@@ -178,7 +180,7 @@
 .overview {
     display: flex;
     align-items: center;
-    border-bottom: 1.5px solid var(--color-grey-light-2);
+    border-bottom: var(--line);
     &__heading {
         color: var(--color-grey-dark-2);
         font-size: 2.75rem;
@@ -244,8 +246,7 @@
     }
     &:focus {
         outline: none;
-        -webkit-animation: pulsate 1s infinite;
-        // transition: all .2s;
+        animation: pulsate 1s infinite;
     }
 }
 
@@ -262,4 +263,75 @@
         transform: scale(1);
         box-shadow: none;
     }
+}
+
+///////////////////////////////////////
+// PRAGRAPH
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+///////////////////////////////////////
+// LIST
+.list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: var(--line);
+    border-bottom: var(--line);
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: .75rem;
+        // padding: 1rem 4
+    }
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1.2rem;
+        width: 1.2rem;
+        margin-right: .75rem;
+        // fill: var(--color-primary);
+        // Older browsers
+        // background-image: url(../img/chevron-thin-right.svg);
+        // background-size: cover;
+        //Modern browser - use mask
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+    }
+}
+
+///////////////////////////////////////
+// RECOMMEND
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-2);
+    display: flex;
+    align-items: center;
+    &__count {
+        margin-right: auto;
+    }
+    &__friends {}
+    &__photo {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-sizing: content-box;
+        &:not(:last-child) {
+            margin-right: -1.5rem;
+        }
+    }
+}
+
+///////////////////////////////////////
+// REVIEW
+.user-review {
+    background-color: #fff;
+    flex: 1;
 }
